@@ -1,0 +1,12 @@
+<input type="text" ng-model='filterText' placeholder="Super Cool Filter">
+
+<div ng-repeat="food in foods | filter:filterText" >
+
+  <h1 ng-click='showNutrients = !showNutrients'>{{food.name}}</h1>
+  <input type="submit" ng-click='sendToDB(food)' ng-show='showNutrients'/>
+
+  <div ng-repeat="nutrient in food.nutrients" ng-show='showNutrients'>
+    <strong>{{nutrient.nutrient}}</strong>: {{nutrient.value}}{{nutrient.unit}}
+
+  </div>
+</div>
